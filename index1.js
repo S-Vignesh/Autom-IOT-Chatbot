@@ -38,10 +38,10 @@ function receiveMessage(req, res, next){
 		if(instance.message && instance.message.text) {
 			var msg_text = instance.message.text;
 			if(msg_text == "light on") {
-				sendMessage(sender, "The lights are on.", true);	
+				sendMessage(sender, "The lights are turned on.", true);	
 			}
 			else if(msg_text == "light off") {
-				sendMessage(sender, "The lights are off.", true);	
+				sendMessage(sender, "The lights are turned off.", true);	
 			}
 			else {
 				sendMessage(sender, "invalid command", true);
