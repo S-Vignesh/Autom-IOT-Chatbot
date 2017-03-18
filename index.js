@@ -20,7 +20,7 @@ app.get('/', function (req, res, next) {
 app.get('/webhook/', handleVerify);
 app.post('/webhook/', receiveMessage);
 app.get('/check/', function(req, res) {
-	var data = 1;
+	var data = 0;
 	res.send("The value is "+data);
 })
 
