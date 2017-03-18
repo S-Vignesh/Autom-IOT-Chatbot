@@ -33,8 +33,15 @@ function receiveMessage(req, res, next){
 		var sender = instance.sender.id;
 		if(instance.message && instance.message.text) {
 			var msg_text = instance.message.text;
-			console.log(msg_text);
-			sendMessage(sender, msg_text, true);
+			if(msg_text == "light on") {
+				sendMessage(sender, "The lights are on.", true);	
+			}
+			else if(msg_text == "light off") {
+				sendMessage(sender, "The lights are off.", true);	
+			}
+			else {
+				sendMessage(sender, "invalid command", true);
+			}
 		}
 	});
   res.sendStatus(200);
