@@ -33,6 +33,7 @@ function receiveMessage(req, res, next){
 		var sender = instance.sender.id;
 		if(instance.message && instance.message.text) {
 			var msg_text = instance.message.text;
+			console.log(msg_text);
 			sendMessage(sender, msg_text, true);
 		}
 	});
