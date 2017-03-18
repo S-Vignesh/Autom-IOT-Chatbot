@@ -19,6 +19,10 @@ app.get('/', function (req, res, next) {
 
 app.get('/webhook/', handleVerify);
 app.post('/webhook/', receiveMessage);
+app.get('/check/', function(req, res) {
+	var data = 1;
+	res.send(data);
+})
 
 function handleVerify(req, res, next){
 	if (req.query['hub.verify_token'] === conf.VERIFY_TOKEN) {
