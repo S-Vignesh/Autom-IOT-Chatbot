@@ -21,7 +21,7 @@ app.get('/webhook/', handleVerify);
 app.post('/webhook/', receiveMessage);
 app.get('/check/', function(req, res) {
 	var data = 1;
-	res.send(data);
+	res.send("The value is "+data);
 })
 
 function handleVerify(req, res, next){
