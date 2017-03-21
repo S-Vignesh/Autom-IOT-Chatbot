@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/sgaurav/fb-messenger-echo-bot#readme",
   "dependencies": {
-    "body-parser": "~1.15.0",
-    "compression": "~1.6.1",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
     "express": "~4.13.4",
     "request": "~2.71.0"
   }
