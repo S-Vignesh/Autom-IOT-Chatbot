@@ -37,12 +37,25 @@ function receiveMessage(req, res, next){
 		var sender = instance.sender.id;
 		if(instance.message && instance.message.text) {
 			var msg_text = instance.message.text;
-			if(msg_text == "light on") {
-				sendMessage(sender, "The lights are on.", true);	
+			if(msg_text == "Turn the lights on.") {
+				sendMessage(sender, "The lights are turned on.", true);	
 			}
-			else if(msg_text == "light off") {
-				sendMessage(sender, "The lights are off.", true);	
+			else if(msg_text == "Turn the lights off.") {
+				sendMessage(sender, "The lights are turned off.", true);	
 			}
+			else if(msg_text == "Hi") {
+				sendMessage(sender, "Hi! This is Autom, a personal home automation chatbot, designed by 3 students of VIT! How may i help you?", true);	
+			}
+			else if(msg_text == "Hey") {
+				sendMessage(sender, "Hey! This is Autom, a personal home automation chatbot, designed by 3 students of VIT! How may i help you?", true);	
+			}
+			else if(msg_text == "Hello") {
+				sendMessage(sender, "Hello! This is Autom, a personal home automation chatbot, designed by 3 students of VIT! How may i help you?", true);	
+			}
+			else if(msg_text == "What can you do?") {
+				sendMessage(sender, "I can perform a variety of functions, commands for which are given below.\n1.Turn the lights on.\n2.Turn the lights off.", true);	
+			}
+
 			else {
 				sendMessage(sender, "invalid command", true);
 			}
