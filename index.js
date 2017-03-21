@@ -57,7 +57,7 @@ function receiveMessage(req, res, next){
 			}
 
 			else {
-				sendMessage(sender, "invalid command", true);
+				sendMessage(sender, "Sorry, i didn't get that.", true);
 			}
 		}
 	});
