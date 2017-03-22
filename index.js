@@ -39,7 +39,7 @@ function receiveMessage(req, res, next){
 		var sender = instance.sender.id;
 
 		if(instance.message && instance.message.text) {
-			var msg_text = instance.message.text.toLowerCase();
+			var msg_text = instance.message.text;
 			if(msg_text == "turn the lights on") {
 				sendMessage(sender, "Sure, I turned the lights on", true);
 				lightState = true;	
