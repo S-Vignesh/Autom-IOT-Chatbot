@@ -40,6 +40,7 @@ function receiveMessage(req, res, next){
 
 		if(instance.message && instance.message.text) {
 			var msg_text = instance.message.text.toLowerCase();
+			var regex = "^1[6-9]|2[0-8]$"
 			if(msg_text == "turn the lights on") {
 				sendMessage(sender, "Sure, I turned the lights on", true);
 				lightState = true;	
@@ -54,7 +55,7 @@ function receiveMessage(req, res, next){
 			else if(msg_text == "what can you do?") {
 				sendMessage(sender, "I can perform the following actions - \n1.Turn the lights on\n2.Turn the lights off\n3.Set the thermostat to [value]\n4.Are the lights on?\n5.Is there anyone in the house?", true);	
 			}
-			else if(msg_text == "set the thermostat to " + [16,17,18,19,20,21,22,23,24,25,26,27,28]) {
+			else if(msg_text == "set the thermostat to " + regex) {
 				sendMessage(sender, "I have changed the temperature of the thermostat.", true);	
 			}
 			else if(msg_text == "is there anyone in the house?") {
