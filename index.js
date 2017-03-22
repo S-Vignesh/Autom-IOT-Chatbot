@@ -57,7 +57,7 @@ function receiveMessage(req, res, next){
 			else if(msg_text == "set the thermostat to " + [16,17,18,19,20,21,22,23,24,25,26,27,28]) {
 				sendMessage(sender, "I have changed the temperature of the thermostat.", true);	
 			}
-			else if(msg_text == "is there anyone in the house? ") {
+			else if(msg_text == "is there anyone in the house?") {
 				if(people!=0){
 					if(people==1)
 						sendMessage(sender,"Yes, there is a person in the house",true);
