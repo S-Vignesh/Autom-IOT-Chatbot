@@ -54,7 +54,7 @@ function receiveMessage(req, res, next){
 			else if(msg_text == "what can you do?") {
 				sendMessage(sender, "I can perform the following actions - \n1.Turn the lights on\n2.Turn the lights off\n3.Set the thermostat to [value]\n4.Are the lights on?\n5.Is there anyone in the house?", true);	
 			}
-			else if(msg_text == "set the thermostat to " + {16,17,18,19,20,21,22,23,24,25,26,27,28}) {
+			else if(msg_text == "set the thermostat to " + [16,17,18,19,20,21,22,23,24,25,26,27,28]) {
 				sendMessage(sender, "I have changed the temperature of the thermostat.", true);	
 			}
 			else if(msg_text == "is there anyone in the house? ") {
