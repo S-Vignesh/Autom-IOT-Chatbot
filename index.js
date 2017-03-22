@@ -5,8 +5,6 @@ var bodyParser = require('body-parser');
 var compression = require('compression');
 
 var conf = require('./conf');
-var people = 1;
-var lightState = false;
 
 var app = express();
 app.use(compression());
@@ -37,47 +35,29 @@ function receiveMessage(req, res, next){
 	var message_instances = req.body.entry[0].messaging;
 	message_instances.forEach(function(instance){
 		var sender = instance.sender.id;
-
 		if(instance.message && instance.message.text) {
-			var msg_text = instance.message.text.toLowerCase();
-			if(msg_text == "turn the lights on") {
-				sendMessage(sender, "Sure, I turned the lights on", true);
-				lightState = true;	
+			var msg_text = instance.message.text;
+			if(msg_text == "Turn the lights on.") {
+				sendMessage(sender, "The lights are turned on.", true);	
 			}
-			else if(msg_text == "turn the lights off") {
-				sendMessage(sender, "Sure, I turned the lights off", true);
-				lightState = false;	
+			else if(msg_text == "Turn the lights off.") {
+				sendMessage(sender, "The lights are turned off.", true);	
 			}
-			else if(msg_text == "hi"||msg_text == "hey"||msg_text == "hello") {
-				sendMessage(sender, "Hi! This is Autom, I am your personal home automation chatbot, designed by 3 students of VIT! How may I help you?", true);	
+			else if(msg_text == "Hi") {
+				sendMessage(sender, "Hi! This is Autom, a personal home automation chatbot, designed by 3 students of VIT! How may i help you?", true);	
 			}
-			else if(msg_text == "what can you do?") {
-				sendMessage(sender, "I can perform the following actions - \n1.Turn the lights on\n2.Turn the lights off\n3.Set the thermostat to [value]\n4.Are the lights on?\n5.Is there anyone in the house?", true);	
+			else if(msg_text == "Hey") {
+				sendMessage(sender, "Hey! This is Autom, a personal home automation chatbot, designed by 3 students of VIT! How may i help you?", true);	
 			}
-			else if(msg_text == "set the thermostat to " + {16,17,18,19,20,21,22,23,24,25,26,27,28}) {
-				sendMessage(sender, "I have changed the temperature of the thermostat.", true);	
+			else if(msg_text == "Hello") {
+				sendMessage(sender, "Hello! This is Autom, a personal home automation chatbot, designed by 3 students of VIT! How may i help you?", true);	
 			}
-			else if(msg_text == "is there anyone in the house? ") {
-				if(people!=0){
-					if(people==1)
-						sendMessage(sender,"Yes, there is a person in the house",true);
-					else
-						sendMessage(sender,"Yes, there are " + people + " people in the house",true);
-				}
-				else
-					sendMessage(sender,"No, there is no one in the house",true);				
-					
+			else if(msg_text == "What can you do?") {
+				sendMessage(sender, "I can perform a variety of functions, commands for which are given below.\n1.Turn the lights on.\n2.Turn the lights off.", true);	
 			}
-			else if(msg_text == "are the lights on?") {
-				if(lightState)				
-				sendMessage(sender, "Yes, the lights are on", true);
-				else
-				sendMessage(sender, "No, the lights are off", true);	
-			}
-			
 
 			else {
-				sendMessage(sender, "Sorry, I didn't get that", true);
+				sendMessage(sender, "invalid command", true);
 			}
 		}
 	});
